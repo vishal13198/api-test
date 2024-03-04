@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: shuttleinfraapi 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shuttleinfraapi
+  template:
+    metadata:
+      labels:
+        app: shuttleinfraapi 
+    spec:
+      containers:
+        - name: shuttleinfraapi 
+          image: mycontainerregistryterraform.azurecr.io/shuttleinfraapi
+          ports:
+          - containerPort: 5000
